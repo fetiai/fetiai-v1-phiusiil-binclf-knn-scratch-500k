@@ -1,0 +1,82 @@
+{
+  "artifact_schema_version": "v1",
+  "baseline_accuracy": 0.9248,
+  "baseline_note": "A constant 'legitimate' predictor scores this. Read every accuracy against it: on its own the number cannot tell a working detector from a constant.",
+  "n_train": 112323,
+  "n_validation": 28081,
+  "positive_class": "phishing (label 0)",
+  "profiles": {
+    "corrected": {
+      "knn_k": 20,
+      "leaky": false,
+      "models": {
+        "knn_scratch": {
+          "accuracy": 0.9804494141946511,
+          "average_precision_phishing": 0.9674091116816042,
+          "baseline_accuracy": 0.9248,
+          "confusion_matrix": [
+            [
+              1634,
+              518
+            ],
+            [
+              31,
+              25898
+            ]
+          ],
+          "family": "knn",
+          "is_scratch": true,
+          "legitimate_f1": 0.9895118922533194,
+          "legitimate_precision": 0.9803906723198061,
+          "legitimate_recall": 0.998804427475028,
+          "lift_over_baseline": 0.05564941419465119,
+          "name": "KNN (from scratch)",
+          "phishing_f1": 0.856169766832591,
+          "phishing_precision": 0.9813813813813814,
+          "phishing_recall": 0.7592936802973977,
+          "predict_seconds": 5.637033897000947,
+          "support_legitimate": 25929,
+          "support_phishing": 2152
+        }
+      },
+      "note": "Canonical. Serving-time statistics are the training-time statistics.",
+      "parity_vs_sibling_implementation": 0.00035611267405006946
+    },
+    "legacy": {
+      "knn_k": 6,
+      "leaky": true,
+      "models": {
+        "knn_scratch": {
+          "accuracy": 0.9855774367009722,
+          "average_precision_phishing": 0.9533724979602588,
+          "baseline_accuracy": 0.9248,
+          "confusion_matrix": [
+            [
+              1795,
+              357
+            ],
+            [
+              48,
+              25881
+            ]
+          ],
+          "family": "knn",
+          "is_scratch": true,
+          "legitimate_f1": 0.9922364713324515,
+          "legitimate_precision": 0.9863937800137206,
+          "legitimate_recall": 0.9981487909290756,
+          "lift_over_baseline": 0.06077743670097224,
+          "name": "KNN (from scratch)",
+          "phishing_f1": 0.8986232790988736,
+          "phishing_precision": 0.9739555073250136,
+          "phishing_recall": 0.8341078066914498,
+          "predict_seconds": 5.352090013009729,
+          "support_legitimate": 25929,
+          "support_phishing": 2152
+        }
+      },
+      "note": "Reconstruction of the original's configuration, including standardising each split by its own mean and standard deviation. Reported for provenance only. The scaling behind these numbers does not exist at serving time and cannot be reconstructed from a single URL, so they describe a model that cannot be deployed.",
+      "parity_vs_sibling_implementation": 0.0022791211139204445
+    }
+  }
+}
